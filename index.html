@@ -36,13 +36,15 @@
     .span-mid { border-radius: 0; margin-left: -4px; margin-right: -4px; }
     .span-end { border-top-left-radius: 0; border-bottom-left-radius: 0; margin-left: -4px; }
     .footnote { margin-top: 40px; padding: 20px; background: white; border-radius: 8px; border: 1px solid #ccc; max-width: 800px; position: sticky; left: 0; }
+    .footnote h3 { margin-top: 0; font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+    .footnote ul { font-size: 13px; color: #4b5563; line-height: 1.8; list-style-type: disc; padding-left: 20px; margin: 0; }
   </style>
 </head>
 <body>
   <div class="header-area">
     <h1>2026 Pro Planner</h1>
     <div class="zoom-controls">
-      <label>Zoom:</label>
+      <label>Zoom Scroll:</label>
       <input type="range" id="zoomSlider" class="zoom-slider" min="0.2" max="2.0" step="0.05" value="1.0" oninput="updateZoom(this.value)">
       <button class="share-btn" onclick="exportData()">Export Data (Share)</button>
       <button class="share-btn import" onclick="importData()">Import Data (Sync)</button>
@@ -53,14 +55,17 @@
   <div class="footnote">
     <h3>Instructions & User Guide</h3>
     <ul>
-      <li><strong>Scroll:</strong> Months stay locked on the left.</li>
-      <li><strong>Hover:</strong> Hover on an event for 2s to see full name.</li>
-      <li><strong>Sync:</strong> Add events, click <strong>Export</strong>, send code to her. She clicks <strong>Import</strong>.</li>
+      <li><strong>Create Event:</strong> Type in the "+" box and press Enter.</li>
+      <li><strong>Highlight & Span:</strong> Click an event once (yellow border), then click any day box to stretch it across dates.</li>
+      <li><strong>Hover Details:</strong> Hover over any event for 2 seconds to see its full name (helpful for long names).</li>
+      <li><strong>Scroll:</strong> The month labels on the left are frozen; they will stay visible as you scroll right.</li>
+      <li><strong>Zoom:</strong> Use the long slider at the top to zoom far in or out.</li>
+      <li><strong>Holidays:</strong> <span style="background:#e0f2fe; padding:2px;">PH (Blue)</span>, <span style="background:#fef9c3; padding:2px;">AU (Yellow)</span>, <span style="background:#dcfce7; padding:2px;">Both (Green)</span>, <span style="background:#fee2e2; padding:2px;">Birthdays (Red)</span>.</li>
     </ul>
   </div>
   <script>
     const YEAR = 2026;
-    const STORAGE_KEY = "planner_v2026_shared_final";
+    const STORAGE_KEY = "planner_v2026_shared_final_v10";
     const COLORS = ["#ef4444", "#8b5cf6", "#3b82f6", "#10b981", "#f59e0b"]; 
     const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
